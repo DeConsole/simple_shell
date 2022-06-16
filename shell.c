@@ -1,5 +1,4 @@
 #include "shell.h"
-#include <stdio.h>
 
 /**
  * main - Checks the shell program.
@@ -8,19 +7,13 @@
 int main(void)
 {
 	char *line = NULL;
-	size_t linecap = 0;
-	ssize_t linelen;
 
 	while (1)
 	{
 		prompt();
-		linelen = getline(&line, &linecap, stdin);
-		if (linelen < 0)
-		{
-			write(STDOUT_FILENO, "\n", 1);
-			exit(0);
-		}
-		write(STDOUT_FILENO, line, linecap);
+		line = _read();
+		printf("%s", line);
+		free(line);
 	}
 	return (0);
 }

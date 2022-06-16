@@ -3,7 +3,9 @@
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 void prompt(void);
+char *_read(void);
 
 #endif
